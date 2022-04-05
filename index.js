@@ -6,7 +6,7 @@ const port = 5000;
 // use mongoose to connect to a mongodb server (here I used mongo atlas - online mongodb server)
 mongoose
   .connect(
-    "mongodb+srv://EveryOne:newpswd@pjs.qz9je.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "<MONGO_URI>",
     { useNewUrlParser: true }
   )
   .then(() => {
