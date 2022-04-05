@@ -2,11 +2,13 @@ const express = require("express");
 const Post = require("./models/Post");
 const router = express.Router();
 
+// get all posts
 router.get("/posts", async (req, res) => {
   const posts = await Post.find();
   res.send(posts);
 });
 
+// create a new post (by passing a post object in req body)
 router.post("/posts", async (req, res) => {
   const post = new Post({
     title: req.body.title,
@@ -16,6 +18,7 @@ router.post("/posts", async (req, res) => {
   res.send(post);
 });
 
+// get a specific post by its object id
 router.get("/posts/:id", async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
@@ -26,6 +29,7 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
+// update a specif post (according to the passed object id)
 router.patch("/posts/:id", async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
@@ -46,6 +50,7 @@ router.patch("/posts/:id", async (req, res) => {
   }
 });
 
+// delete a specific post (the one with the passed object id)
 router.delete("/posts/:id", async (req, res) => {
   try {
     await Post.deleteOne({ _id: req.params.id });
