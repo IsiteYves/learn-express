@@ -22,7 +22,7 @@ router.get("/posts/:id", async (req, res) => {
     res.send(post);
   } catch {
     res.status(404);
-    res.send({ error: "Post doesn't exist!" });
+    res.send({ error: "That post doesn't exist!" });
   }
 });
 
@@ -42,7 +42,7 @@ router.patch("/posts/:id", async (req, res) => {
     res.send(post);
   } catch {
     res.status(404);
-    res.send({ error: "Post doesn't exist!" });
+    res.send({ error: "That post doesn't exist!" });
   }
 });
 
@@ -52,7 +52,7 @@ router.delete("/posts/:id", async (req, res) => {
     res.status(204).send();
   } catch {
     res.status(404);
-    res.send({ error: "Post doesn't exist!" });
+    res.send({ error: "That post doesn't exist!" });
   }
 });
 
